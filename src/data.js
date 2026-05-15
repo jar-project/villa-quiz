@@ -23,11 +23,11 @@ const TITLES = [
     emoji: "🛡️",
     title: "The Loyalist",
     subtitle: "Sahabat Sejati",
-    desc: "Orang yang selalu ada, apapun yang terjadi. Nggak perlu bilang dua kali — dia udah ngerti.",
+    desc: "Orang yang selalu ada, apapun yang terjadi (anjay). Nggak perlu bilang 2x dia udah ngerti.",
     questions: [
-      "Siapa yang paling rela bangunin tengah malem kalau lo butuh?",
-      "Siapa yang paling inget hal-hal kecil tentang lo?",
-      "Siapa yang paling lo percaya simpan rahasia?"
+      "Siapa yang paling rela lu bangunin tengah malem kalo lu butuh?",
+      "Siapa yang paling inget hal-hal kecil tentang lu?",
+      "Siapa yang paling lu percaya buat bisa jaga rahasia?"
     ]
   },
   {
@@ -35,10 +35,10 @@ const TITLES = [
     emoji: "🫂",
     title: "The Therapist",
     subtitle: "Tong Sampah Terbaik",
-    desc: "Curhat ke dia rasanya aman banget. Dengerin dulu, baru kasih saran — dan sarannya selalu tepat.",
+    desc: "Curhat ke beliau ini rasanya aman banget. Bisa jadi great listener, bisa jadi great supporter juga.",
     questions: [
       "Siapa yang paling enak diajak curhat?",
-      "Siapa yang paling bijak kasih saran kalau lo lagi ada masalah?"
+      "Siapa yang paling bijak kasih saran kalo lu lagi ada masalah?"
     ]
   },
   {
@@ -46,10 +46,10 @@ const TITLES = [
     emoji: "📣",
     title: "The Hype Man",
     subtitle: "Supporter Nomor Satu",
-    desc: "Fan terbesar lo di antara teman-teman. Pencapaian lo sekecil apapun, dia yang paling heboh.",
+    desc: "Orang paling supportif sedunia. Pencapaian sekecil apapun, dianggep berharga.",
     questions: [
-      "Siapa yang paling semangat kalau lo punya pencapaian?",
-      "Siapa yang paling vokal bela lo di depan orang lain?"
+      "Siapa yang paling semangat kalo lu punya pencapaian?",
+      "Siapa yang paling bisa bela lu di depan orang lain?"
     ]
   },
   {
@@ -57,10 +57,10 @@ const TITLES = [
     emoji: "📋",
     title: "The Planner",
     subtitle: "Ketua Panitia Dadakan",
-    desc: "Kalau nggak ada dia, acara kalian nggak akan pernah jadi. Dari destinasi sampai budget — dia yang handle.",
+    desc: "Kalo nggak ada orang ini, acara nggak akan jalan. Dari A sampe Z beliau ini yang handle.",
     questions: [
-      "Siapa yang paling sering jadi inisiator kalau mau ngadain acara?",
-      "Siapa yang paling detail dan organized kalau planning sesuatu?"
+      "Siapa yang paling sering jadi inisiator kalo mau ngadain acara?",
+      "Siapa yang paling detail dan organized kalo planning sesuatu?"
     ]
   },
   {
@@ -68,7 +68,7 @@ const TITLES = [
     emoji: "🍜",
     title: "The Foodie",
     subtitle: "Makan Dulu Baru Ngomong",
-    desc: "GPS-nya selalu nunjuk ke arah makanan. Rekomendasinya nggak pernah salah — dan porsinya nggak pernah cukup.",
+    desc: "Intinya makan dulu, kemana-mana pokoknya harus makan.",
     questions: [
       "Siapa yang paling sering lapar dadakan di tengah acara?",
       "Siapa yang paling susah diajak diet?",
@@ -80,10 +80,10 @@ const TITLES = [
     emoji: "😴",
     title: "The Sleeper",
     subtitle: "Sultan Tidur",
-    desc: "Bisa tidur di mana aja, kapan aja, dalam kondisi apapun. Skill langka yang tidak semua orang punya.",
+    desc: "Ikut nongki cuma buat turu WKWKW. Keren tapi, nggak semua orang bisa.",
     questions: [
       "Siapa yang paling bisa tidur di mana aja?",
-      "Siapa yang paling susah dibangunin kalau udah ketiduran?"
+      "Siapa yang paling susah dibangunin kalo udah ketiduran?"
     ]
   },
   {
@@ -91,9 +91,9 @@ const TITLES = [
     emoji: "🗺️",
     title: "The Lost One",
     subtitle: "GPS Rusak",
-    desc: "Udah di-maps-in, udah dikasih petunjuk, tetep aja nyasar. Tapi somehow selalu nyampe juga.",
+    desc: "Udah disharelok, udah dijelasin ini itu, masih nyasar. Tapi alhamdulillah masih bisa nyampe juga.",
     questions: [
-      "Siapa yang paling sering nyasar padahal udah pakai GPS?",
+      "Siapa yang paling sering nyasar padahal udah pake GPS?",
       "Siapa yang paling sering salah jalan waktu pergi bareng?"
     ]
   },
@@ -102,10 +102,10 @@ const TITLES = [
     emoji: "⏰",
     title: "The Late One",
     subtitle: "Jam Karet Certified",
-    desc: "Kalau dia bilang '5 menit lagi', tandanya kalian harus duduk dulu, pesen minum, mungkin juga sempet tidur sebentar.",
+    desc: "Kalo dia bilang 'otw', tandanya kita masih bisa mandi, masih bisa namatin kuliah, naik haji juga cukup.",
     questions: [
       "Siapa yang paling sering telat dateng ke acara?",
-      "Siapa yang bilang \"5 menit lagi\" tapi nyatanya 30 menit kemudian?"
+      "Siapa yang bilang \"5 menit lagi\" tapi nyatanya 30 menit baru sampe?"
     ]
   },
   {
@@ -113,9 +113,9 @@ const TITLES = [
     emoji: "🎭",
     title: "The Drama Royal",
     subtitle: "Oscar Worthy",
-    desc: "Hidupnya penuh plot twist. Masalah kecil bisa jadi epic saga. Tapi justru itu yang bikin circle ini nggak boring.",
+    desc: "Hidupnya penuh plot twist. Masalah kecil bisa jadi drakor 26 episode. Tapi justru bikin jadi seru.",
     questions: [
-      "Siapa yang paling lebay kalau ada masalah kecil?",
+      "Siapa yang paling lebay kalo ada masalah kecil?",
       "Siapa yang paling sering bikin situasi jadi drama tanpa sengaja?"
     ]
   },
@@ -124,10 +124,10 @@ const TITLES = [
     emoji: "👻",
     title: "The Ghoster",
     subtitle: "Now You See Me",
-    desc: "Kadang ada, kadang nggak. Muncul tiba-tiba, menghilang tanpa jejak. Tapi waktu dia ada, seru banget.",
+    desc: "Kadang nongol, kadang ngilang. Tapi kalo ada beliau ini, seru banget.",
     questions: [
       "Siapa yang paling sering ghosting grup chat?",
-      "Siapa yang paling susah dihubungi kalau lagi 'mode pesawat'?"
+      "Siapa yang paling susah dihubungi kalo lagi 'mode pesawat'?"
     ]
   },
   {
@@ -135,9 +135,9 @@ const TITLES = [
     emoji: "🌀",
     title: "The Overthinker",
     subtitle: "Baperan Profesional",
-    desc: "Satu pesan bisa dianalisis dari 12 sudut pandang berbeda. Hatinya besar, pikirannya lebih besar lagi.",
+    desc: "Sesuai title, kang overthinking. Hatinya besar, fikirannya lebih besar lagi.",
     questions: [
-      "Siapa yang paling baper kalau salah baca situasi?",
+      "Siapa yang paling baper kalo salah baca situasi?",
       "Siapa yang paling sering overthinking hal-hal sepele?"
     ]
   },
@@ -146,10 +146,10 @@ const TITLES = [
     emoji: "💸",
     title: "The Negotiator",
     subtitle: "Sultan Receh",
-    desc: "Kreativitasnya paling tinggi waktu urusan patungan. Tapi entah kenapa, tetep aja disayang.",
+    desc: "Kang nego, jago nego, apa-apa harus nego dulu. Calon CEO beliau ini kayaknya.",
     questions: [
-      "Siapa yang paling kreatif kalau urusan patungan?",
-      "Siapa yang paling sering 'lupa bawa dompet'?"
+      "Siapa yang paling kreatif kalo urusan patungan?",
+      "Siapa yang jago banget 'itung-itungan'?"
     ]
   },
   {
@@ -157,11 +157,11 @@ const TITLES = [
     emoji: "😂",
     title: "The Comedian",
     subtitle: "Sumber Kebahagiaan",
-    desc: "Jokes-nya receh, tapi entah kenapa selalu ngakak. Dia yang bikin suasana cair waktu semuanya awkward.",
+    desc: "Juaranya joke-joke receh, tapi selalu lucu. Lucu banget pokoknya orangnya.",
     questions: [
       "Siapa yang paling sering bikin suasana cair waktu awkward?",
       "Siapa yang jokes-nya paling receh tapi tetep bikin ngakak?",
-      "Siapa yang paling bisa bikin lo ketawa di situasi apapun?"
+      "Siapa yang paling bisa bikin lu ketawa di situasi apapun?"
     ]
   },
   {
@@ -169,11 +169,11 @@ const TITLES = [
     emoji: "🕵️",
     title: "The Stalker",
     subtitle: "FBI Agent Undercover",
-    desc: "Tau urusan orang padahal nggak dikasih tau. Jeli, peka, dan selalu satu langkah lebih depan dari yang lain.",
+    desc: "Tau urusan orang padahal belom dikasih tau. Jeli, peka, the best pokoknya.",
     questions: [
       "Siapa yang paling tau urusan orang lain padahal nggak dikasih tau?",
-      "Siapa yang paling jeli nangkep perubahan kecil pada orang lain?",
-      "Siapa yang paling sering tau duluan kalau ada yang lagi ada masalah?"
+      "Siapa yang paling jeli nangkep perubahan kecil orang lain?",
+      "Siapa yang paling sering tau duluan kalo ada yang lagi ada masalah?"
     ]
   },
   {
@@ -181,10 +181,10 @@ const TITLES = [
     emoji: "☮️",
     title: "The Peacemaker",
     subtitle: "Juru Damai",
-    desc: "Kalau ada konflik, dia yang paling tenang. Bisa bikin semua pihak ngerasa didengar dan nggak ada yang menang-menangan.",
+    desc: "Kalo ada konflik, dia yang paling tenang. Bisa bikin semua pihak ngerasa didenger. Penengah pokoknya.",
     questions: [
-      "Siapa yang paling sering jadi penengah kalau ada konflik?",
-      "Siapa yang paling bisa bikin semua pihak ngerasa didengar?"
+      "Siapa yang paling sering jadi penengah kalo ada konflik?",
+      "Siapa yang paling bisa bikin semua pihak ngerasa didenger?"
     ]
   },
   {
@@ -192,7 +192,7 @@ const TITLES = [
     emoji: "🎲",
     title: "The Wildcard",
     subtitle: "Unpredictable Energy",
-    desc: "Nggak ada yang tau dia bakal ngapain selanjutnya — termasuk dirinya sendiri. Tapi hasilnya selalu seru.",
+    desc: "Nggak ada yang tau dia bakal ngapain selanjutnya, agak random kayaknya orangnya. Tapi selalu out of the box.",
     questions: [
       "Siapa yang paling sering bikin keputusan random tapi malah jadi seru?",
       "Siapa yang tingkahnya paling nggak bisa ditebak?"
@@ -203,7 +203,7 @@ const TITLES = [
     emoji: "✨",
     title: "The Influencer",
     subtitle: "FYP Berjalan",
-    desc: "Selalu tau tren terbaru sebelum orang lain. Rekomendasinya selalu diikutin — dan jarang salah.",
+    desc: "Selalu tau tren terbaru sebelum orang lain. Trendsetter abiez.",
     questions: [
       "Siapa yang paling update sama tren terbaru?",
       "Siapa yang paling sering rekomen hal-hal baru ke circle?"
@@ -214,9 +214,9 @@ const TITLES = [
     emoji: "🚀",
     title: "The Risk Taker",
     subtitle: "YOLO Certified",
-    desc: "Kalau ada yang nekat ngajak hal gila, dialah orangnya. Dan biasanya berakhir jadi kenangan terbaik.",
+    desc: "Kalo ada yang nekat ngajak hal-hal gila, ini orangnya nih. Coba tes aja japri.",
     questions: [
-      "Siapa yang paling nekat kalau diajak hal baru?",
+      "Siapa yang paling nekat kalo diajak hal baru?",
       "Siapa yang paling sering bilang 'yaudah coba aja dulu'?",
       "Siapa yang paling sering jadi alasan kenapa kalian ngelakuin hal gila?"
     ]
@@ -226,7 +226,7 @@ const TITLES = [
     emoji: "📸",
     title: "The Nostalgia Kid",
     subtitle: "Penjaga Kenangan",
-    desc: "Arsip hidup circle ini. Dia yang inget detail kejadian lama dan selalu bawa kalian balik ke momen-momen terbaik.",
+    desc: "Arsip hidup circle ini. Dia yang inget detail kejadian lama dan selalu bawa kita balik ke momen terbaik kita.",
     questions: [
       "Siapa yang paling sering ngeluarin foto atau video lama?",
       "Siapa yang paling inget detail kejadian yang udah lama banget?",
@@ -238,7 +238,7 @@ const TITLES = [
     emoji: "👑",
     title: "The OG",
     subtitle: "Jiwa Circle Ini",
-    desc: "Nggak kebayang circle ini tanpa dia. Bukan karena dia yang paling berisik, tapi karena dia yang paling bikin semuanya utuh.",
+    desc: "Real OG! Nggak kebayang kalo gaada dia di circle ini. Paket lengkap pokoknya.",
     questions: [
       "Siapa yang paling nggak kebayang kalau nggak ada di circle ini?",
       "Siapa yang paling merepresentasiin vibes pertemanan kalian?"
