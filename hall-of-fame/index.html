@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hall of Fame — Villa Night ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7C3AED;
+      --purple-light: #EDE9FE;
+      --purple-mid: #DDD6FE;
+      --purple-dark: #5B21B6;
+      --text: #1C1C2E;
+      --text-muted: #6B7280;
+      --bg: #F9F8FF;
+      --white: #FFFFFF;
+      --border: #E5E7EB;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* LOADING */
+    #loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .loading-dots span {
+      display: inline-block;
+      width: 10px; height: 10px;
+      background: var(--purple);
+      border-radius: 50%;
+      margin: 0 4px;
+      animation: pulse 1.2s ease infinite;
+    }
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* HEADER */
+    .page-header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      position: relative;
+    }
+
+    .page-badge {
+      display: inline-block;
+      background: var(--purple-light);
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* VOTER COUNT */
+    .voter-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .voter-avatars {
+      display: flex;
+    }
+
+    .voter-avatars img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      margin-left: -6px;
+      object-fit: cover;
+    }
+
+    .voter-avatars img:first-child { margin-left: 0; }
+
+    /* TITLES GRID */
+    .titles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      padding: 0 1.25rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .title-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 1.25rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .title-card:hover {
+      border-color: var(--purple);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(124,58,237,0.1);
+    }
+
+    .title-card-emoji { font-size: 32px; margin-bottom: 0.5rem; }
+
+    .title-card-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .title-card-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .title-winner {
+      display: inline-block;
+      background: var(--purple-light);
+      color: var(--purple-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .title-winner.tie {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+
+    .title-card.no-votes .title-winner {
+      background: var(--bg);
+      color: var(--text-muted);
+    }
+
+    /* MODAL OVERLAY */
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    #modal-overlay.open { display: flex; }
+
+    /* MODAL CARD — screenshot-able */
+    .modal-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      max-width: 360px;
+      position: relative;
+      text-align: center;
+      animation: popIn 0.25s ease;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--bg);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-emoji { font-size: 56px; margin-bottom: 1rem; }
+
+    .modal-badge {
+      display: inline-block;
+      background: var(--purple-light);
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 0.75rem;
+    }
+
+    .modal-winner-name {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .modal-title-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.25rem;
+    }
+
+    .modal-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .modal-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: 12px;
+    }
+
+    .modal-votes {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-voters-wrap {
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-voters-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-voter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .voter-chip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--purple-light);
+      border-radius: 100px;
+      padding: 4px 10px 4px 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple-dark);
+    }
+
+    .voter-chip img {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .share-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* REFRESH BTN */
+    .refresh-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--purple);
+      color: white;
+      border: none;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(124,58,237,0.3);
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .refresh-btn:hover { background: var(--purple-dark); transform: scale(1.05); }
+    .refresh-btn:active { transform: scale(0.95); }
+  </style>
+</head>
+<body>
+
+<div id="loading">
+  <div style="font-size:32px">✨</div>
+  <div style="font-weight:700; font-size:16px">Ngitung votes...</div>
+  <div class="loading-dots">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<div id="main" style="display:none">
+  <div class="page-header">
+    <div class="page-badge">Villa Night ✨</div>
+    <h1 class="page-title">🏆 Hall of Fame</h1>
+    <p class="page-subtitle">Hasil voting circle kalian</p>
+
+    <div class="voter-status">
+      <div class="voter-avatars" id="voted-avatars"></div>
+      <span id="voted-count">0 dari 13 udah voting</span>
+    </div>
+  </div>
+
+  <div class="titles-grid" id="titles-grid"></div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-card" id="modal-card">
+    <button class="modal-close" onclick="closeModalBtn()">×</button>
+    <div class="modal-emoji" id="m-emoji"></div>
+    <div class="modal-badge">Title of the Night</div>
+    <div class="modal-winner-name" id="m-winner"></div>
+    <div class="modal-title-name" id="m-title"></div>
+    <div class="modal-subtitle" id="m-subtitle"></div>
+    <div class="modal-desc" id="m-desc"></div>
+    <div class="modal-voters-wrap">
+      <div class="modal-voters-label">Dipilih oleh</div>
+      <div class="modal-voter-list" id="m-voters"></div>
+    </div>
+    <div class="share-hint">📸 Screenshot kartu ini buat di-story!</div>
+  </div>
+</div>
+
+<button class="refresh-btn" onclick="loadVotes()" title="Refresh">↻</button>
+
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  // ========================
+  // GANTI DENGAN CONFIG LO
+  // ========================
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZ7Jnh0c7BACOAZyyQ3DMWwB7r3J3mil4",
+    authDomain: "villa-quiz-night.firebaseapp.com",
+    databaseURL: "https://villa-quiz-night-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "villa-quiz-night",
+    storageBucket: "villa-quiz-night.firebasestorage.app",
+    messagingSenderId: "153558618786",
+    appId: "1:153558618786:web:3dd11b81908f50d3cc7dfb"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  window._db = db;
+  window._ref = ref;
+  window._onValue = onValue;
+</script>
+
+<script src="../src/data.js"></script>
+<script>
+  const MAX_TITLES_PER_PERSON = 2;
+  let titleWinners = {}; // titleId -> winnerName(s)
+
+  function getMember(name) {
+    return MEMBERS.find(m => m.name === name);
+  }
+
+  function loadVotes() {
+    if (!window._db) {
+      setTimeout(loadVotes, 500);
+      return;
+    }
+
+    const db = window._db;
+    const refFn = window._ref;
+    const onValueFn = window._onValue;
+
+    onValueFn(refFn(db, 'votes'), (snapshot) => {
+      const data = snapshot.val() || {};
+      processVotes(data);
+    });
+  }
+
+  function processVotes(data) {
+    // data = { PersonName: { titleId: { qIdx: votedName } } }
+    const voters = Object.keys(data);
+
+    // Update voter status
+    const avatarsEl = document.getElementById('voted-avatars');
+    avatarsEl.innerHTML = voters.slice(0, 6).map(name => {
+      const m = getMember(name);
+      return m ? `<img src="${m.photo}" alt="${m.name}" title="${m.name}" />` : '';
+    }).join('');
+    document.getElementById('voted-count').textContent =
+      `${voters.length} dari ${MEMBERS.length} udah voting`;
+
+    // Tally votes per title
+    // titleTally[titleId][candidateName] = voteCount
+    const titleTally = {};
+    TITLES.forEach(t => titleTally[t.id] = {});
+
+    voters.forEach(voterName => {
+      const voterData = data[voterName];
+      if (!voterData) return;
+      Object.entries(voterData).forEach(([titleId, qVotes]) => {
+        if (!titleTally[titleId]) titleTally[titleId] = {};
+        Object.values(qVotes).forEach(votedName => {
+          titleTally[titleId][votedName] = (titleTally[titleId][votedName] || 0) + 1;
+        });
+      });
+    });
+
+    // Assign winners with max 2 titles per person
+    const titleCountPerPerson = {};
+    titleWinners = {};
+
+    // Sort titles by "competition" = whoever has most votes first
+    const titlesWithScores = TITLES.map(t => {
+      const tally = titleTally[t.id] || {};
+      const sorted = Object.entries(tally).sort((a, b) => b[1] - a[1]);
+      return { title: t, sorted };
+    });
+
+    titlesWithScores.forEach(({ title, sorted }) => {
+      if (sorted.length === 0) {
+        titleWinners[title.id] = { winners: [], votes: 0, voterList: {} };
+        return;
+      }
+
+      const maxVotes = sorted[0][1];
+      let candidates = sorted.filter(([, v]) => v === maxVotes).map(([n]) => n);
+
+      // Filter: max 2 titles per person — geser ke runner-up
+      let winner = null;
+      let runnerUpIdx = 0;
+      while (runnerUpIdx < sorted.length) {
+        const candidate = sorted[runnerUpIdx][0];
+        const candidateVotes = sorted[runnerUpIdx][1];
+        const count = titleCountPerPerson[candidate] || 0;
+        if (count < MAX_TITLES_PER_PERSON) {
+          winner = { name: candidate, votes: candidateVotes };
+          break;
+        }
+        runnerUpIdx++;
+      }
+
+      // Check for ties at winner's vote count
+      let winners = [];
+      if (winner) {
+        const tied = sorted.filter(([n, v]) => {
+          return v === winner.votes && (titleCountPerPerson[n] || 0) < MAX_TITLES_PER_PERSON;
+        });
+        winners = tied.map(([n]) => n);
+        winners.forEach(n => {
+          titleCountPerPerson[n] = (titleCountPerPerson[n] || 0) + 1;
+        });
+      }
+
+      // Build voterList: who voted for the winner(s)
+      const tally = titleTally[title.id] || {};
+      const voterList = {};
+      voters.forEach(voterName => {
+        const voterData = data[voterName];
+        if (!voterData || !voterData[title.id]) return;
+        Object.values(voterData[title.id]).forEach(votedName => {
+          if (winners.includes(votedName)) {
+            if (!voterList[voterName]) voterList[voterName] = true;
+          }
+        });
+      });
+
+      titleWinners[title.id] = {
+        winners,
+        votes: winner ? winner.votes : 0,
+        voterList
+      };
+    });
+
+    renderTitles(voters.length > 0);
+  }
+
+  function renderTitles(hasVotes) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+
+    const grid = document.getElementById('titles-grid');
+    grid.innerHTML = '';
+
+    TITLES.forEach(t => {
+      const result = titleWinners[t.id];
+      const winners = result ? result.winners : [];
+      const hasWinner = winners.length > 0;
+
+      const card = document.createElement('div');
+      card.className = `title-card${!hasWinner ? ' no-votes' : ''}`;
+      card.onclick = () => openModal(t.id);
+
+      const winnerText = !hasVotes
+        ? '—'
+        : hasWinner
+          ? winners.join(' & ')
+          : '—';
+
+      const isTie = winners.length > 1;
+
+      card.innerHTML = `
+        <div class="title-card-emoji">${t.emoji}</div>
+        <div class="title-card-name">${t.title}</div>
+        <div class="title-card-sub">${t.subtitle}</div>
+        <div class="title-winner${isTie ? ' tie' : ''}">${winnerText}</div>
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+
+  function openModal(titleId) {
+    const title = TITLES.find(t => t.id === titleId);
+    const result = titleWinners[titleId];
+    if (!title) return;
+
+    const winners = result ? result.winners : [];
+    const voterList = result ? result.voterList : {};
+
+    document.getElementById('m-emoji').textContent = title.emoji;
+    document.getElementById('m-winner').textContent = winners.length ? winners.join(' & ') : '—';
+    document.getElementById('m-title').textContent = title.title;
+    document.getElementById('m-subtitle').textContent = `"${title.subtitle}"`;
+    document.getElementById('m-desc').textContent = title.desc;
+
+    const votersEl = document.getElementById('m-voters');
+    const voterNames = Object.keys(voterList);
+    if (voterNames.length === 0) {
+      votersEl.innerHTML = '<span style="font-size:13px;color:var(--text-muted)">Belum ada vote</span>';
+    } else {
+      votersEl.innerHTML = voterNames.map(name => {
+        const m = getMember(name);
+        return m
+          ? `<div class="voter-chip"><img src="${m.photo}" alt="${m.name}" />${m.name}</div>`
+          : '';
+      }).join('');
+    }
+
+    document.getElementById('modal-overlay').classList.add('open');
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modal-overlay')) {
+      document.getElementById('modal-overlay').classList.remove('open');
+    }
+  }
+
+  function closeModalBtn() {
+    document.getElementById('modal-overlay').classList.remove('open');
+  }
+
+  // Init
+  loadVotes();
+</script>
+</body>
+</html>
