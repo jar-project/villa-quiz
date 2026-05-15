@@ -21,8 +21,8 @@ const TITLES = [
   {
     id: "loyalist",
     emoji: "🛡️",
-    title: "The Loyalist",
-    subtitle: "Sahabat Sejati",
+    title: "Si Paling Loyal",
+    subtitle: "Bestie Sejati",
     desc: "Orang yang selalu ada, apapun yang terjadi (anjay). Nggak perlu bilang 2x dia udah ngerti.",
     questions: [
       "Siapa yang paling rela lu bangunin tengah malem kalo lu butuh?",
@@ -33,7 +33,7 @@ const TITLES = [
   {
     id: "therapist",
     emoji: "🫂",
-    title: "The Therapist",
+    title: "Si Paling Therapist",
     subtitle: "Tong Sampah Terbaik",
     desc: "Curhat ke beliau ini rasanya aman banget. Bisa jadi great listener, bisa jadi great supporter juga.",
     questions: [
@@ -44,7 +44,7 @@ const TITLES = [
   {
     id: "hypeman",
     emoji: "📣",
-    title: "The Hype Man",
+    title: "Si Paling Hype",
     subtitle: "Supporter Nomor Satu",
     desc: "Orang paling supportif sedunia. Pencapaian sekecil apapun, dianggep berharga.",
     questions: [
@@ -55,7 +55,7 @@ const TITLES = [
   {
     id: "planner",
     emoji: "📋",
-    title: "The Planner",
+    title: "Si Paling Planner",
     subtitle: "Ketua Panitia Dadakan",
     desc: "Kalo nggak ada orang ini, acara nggak akan jalan. Dari A sampe Z beliau ini yang handle.",
     questions: [
@@ -66,7 +66,7 @@ const TITLES = [
   {
     id: "foodie",
     emoji: "🍜",
-    title: "The Foodie",
+    title: "Si Paling Foodie",
     subtitle: "Makan Dulu Baru Ngomong",
     desc: "Intinya makan dulu, kemana-mana pokoknya harus makan.",
     questions: [
@@ -78,7 +78,7 @@ const TITLES = [
   {
     id: "sleeper",
     emoji: "😴",
-    title: "The Sleeper",
+    title: "Si Paling Sleeper",
     subtitle: "Sultan Tidur",
     desc: "Ikut nongki cuma buat turu WKWKW. Keren tapi, nggak semua orang bisa.",
     questions: [
@@ -89,7 +89,7 @@ const TITLES = [
   {
     id: "lost",
     emoji: "🗺️",
-    title: "The Lost One",
+    title: "Si Paling Tersesat",
     subtitle: "GPS Rusak",
     desc: "Udah disharelok, udah dijelasin ini itu, masih nyasar. Tapi alhamdulillah masih bisa nyampe juga.",
     questions: [
@@ -100,7 +100,7 @@ const TITLES = [
   {
     id: "lateone",
     emoji: "⏰",
-    title: "The Late One",
+    title: "Si Paling Ngaret",
     subtitle: "Jam Karet Certified",
     desc: "Kalo dia bilang 'otw', tandanya kita masih bisa mandi, masih bisa namatin kuliah, naik haji juga cukup.",
     questions: [
@@ -111,7 +111,7 @@ const TITLES = [
   {
     id: "drama",
     emoji: "🎭",
-    title: "The Drama Royal",
+    title: "Si Paling Drama",
     subtitle: "Oscar Worthy",
     desc: "Hidupnya penuh plot twist. Masalah kecil bisa jadi drakor 26 episode. Tapi justru bikin jadi seru.",
     questions: [
@@ -122,7 +122,7 @@ const TITLES = [
   {
     id: "ghoster",
     emoji: "👻",
-    title: "The Ghoster",
+    title: "Si Paling Ninja",
     subtitle: "Now You See Me",
     desc: "Kadang nongol, kadang ngilang. Tapi kalo ada beliau ini, seru banget.",
     questions: [
@@ -133,7 +133,7 @@ const TITLES = [
   {
     id: "overthinker",
     emoji: "🌀",
-    title: "The Overthinker",
+    title: "Si Paling Overthinking",
     subtitle: "Baperan Profesional",
     desc: "Sesuai title, kang overthinking. Hatinya besar, fikirannya lebih besar lagi.",
     questions: [
@@ -144,7 +144,7 @@ const TITLES = [
   {
     id: "cheapskate",
     emoji: "💸",
-    title: "The Negotiator",
+    title: "Si Paling Nego",
     subtitle: "Sultan Receh",
     desc: "Kang nego, jago nego, apa-apa harus nego dulu. Calon CEO beliau ini kayaknya.",
     questions: [
@@ -155,7 +155,7 @@ const TITLES = [
   {
     id: "comedian",
     emoji: "😂",
-    title: "The Comedian",
+    title: "Si Paling Lawak",
     subtitle: "Sumber Kebahagiaan",
     desc: "Juaranya joke-joke receh, tapi selalu lucu. Lucu banget pokoknya orangnya.",
     questions: [
@@ -167,7 +167,7 @@ const TITLES = [
   {
     id: "stalker",
     emoji: "🕵️",
-    title: "The Stalker",
+    title: "Si Paling Stalker",
     subtitle: "FBI Agent Undercover",
     desc: "Tau urusan orang padahal belom dikasih tau. Jeli, peka, the best pokoknya.",
     questions: [
@@ -179,7 +179,7 @@ const TITLES = [
   {
     id: "peacemaker",
     emoji: "☮️",
-    title: "The Peacemaker",
+    title: "Si Paling Peacemaker",
     subtitle: "Juru Damai",
     desc: "Kalo ada konflik, dia yang paling tenang. Bisa bikin semua pihak ngerasa didenger. Penengah pokoknya.",
     questions: [
@@ -190,7 +190,7 @@ const TITLES = [
   {
     id: "wildcard",
     emoji: "🎲",
-    title: "The Wildcard",
+    title: "Si Paling Random",
     subtitle: "Unpredictable Energy",
     desc: "Nggak ada yang tau dia bakal ngapain selanjutnya, agak random kayaknya orangnya. Tapi selalu out of the box.",
     questions: [
@@ -201,7 +201,7 @@ const TITLES = [
   {
     id: "influencer",
     emoji: "✨",
-    title: "The Influencer",
+    title: "Si Paling Influencer",
     subtitle: "FYP Berjalan",
     desc: "Selalu tau tren terbaru sebelum orang lain. Trendsetter abiez.",
     questions: [
@@ -212,7 +212,7 @@ const TITLES = [
   {
     id: "risktaker",
     emoji: "🚀",
-    title: "The Risk Taker",
+    title: "Si Paling Gokil",
     subtitle: "YOLO Certified",
     desc: "Kalo ada yang nekat ngajak hal-hal gila, ini orangnya nih. Coba tes aja japri.",
     questions: [
@@ -224,7 +224,7 @@ const TITLES = [
   {
     id: "nostalgia",
     emoji: "📸",
-    title: "The Nostalgia Kid",
+    title: "Si Paling Nostalgia",
     subtitle: "Penjaga Kenangan",
     desc: "Arsip hidup circle ini. Dia yang inget detail kejadian lama dan selalu bawa kita balik ke momen terbaik kita.",
     questions: [
@@ -236,12 +236,12 @@ const TITLES = [
   {
     id: "og",
     emoji: "👑",
-    title: "The OG",
+    title: "Si Paling OG",
     subtitle: "Jiwa Circle Ini",
     desc: "Real OG! Nggak kebayang kalo gaada dia di circle ini. Paket lengkap pokoknya.",
     questions: [
       "Siapa yang paling nggak kebayang kalau nggak ada di circle ini?",
-      "Siapa yang paling merepresentasiin vibes pertemanan kalian?"
+      "Siapa yang paling bikin circle ini terasa lengkap?"
     ]
   }
 ];
